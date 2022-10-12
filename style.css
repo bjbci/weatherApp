@@ -1,0 +1,43 @@
+header{
+    margin-top: 100px;
+    padding: 20px 20px;
+    background-color:blue;
+}
+
+#btn{
+    height:100px;
+    width:20px;
+    background-color: aquamarine;
+    color:white;
+}
+#typeInCity{
+   
+}
+.col-3{
+   
+    background-color:aqua;
+}
+.col-9{
+    
+    background-color:rgb(255, 0, 119);
+}
+.col-8 col-sm-6{
+    height:200px;
+    background-color:rgb(55, 97, 97);
+}
+.col-4 col-sm-6{height:200px;
+    background-color:rgb(145, 255, 0);
+}
+.row2{
+background-color: aliceblue;
+}
+.col{
+    height:200px;
+}
+.list-group{
+    padding-top: 25px;
+    padding-bottom: 25px;
+}
+.current-forecast{
+    height:300px;
+}
