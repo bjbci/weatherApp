@@ -86,13 +86,13 @@ function getCoordinates(event) {
           var h2 = document.createElement("h2");
           var h3= document.createElement("h3")
           var img = document.createElement("img");
-          h2.textContent=data.main  //appendChild(resultsElement)
-          h3.textContent=data.weather.main
-          console.log(h2.textContent)
-          console.log(h3.textContent)
+          // h2.textContent=data.main  //appendChild(resultsElement)
+          // h3.textContent=data.weather.main
+          // console.log(h2.textContent)
+          // console.log(h3.textContent)
 
-          resultsElement.append(h2)
-          resultsElement.append(h3)
+          // resultsElement.append(h2)
+          // resultsElement.append(h3)
           // h2.textContent=data.
           // img.src=data.
         });
