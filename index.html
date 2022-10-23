@@ -36,15 +36,17 @@
     
     <button type="submit" id="btnSubmit" class="btn btn-primary">Submit</button>
 </form>
-<div class="list-group">
-    <button type="button" class="list-group-item list-group-item-action active" aria-current="true">
-      The current button
+<div class="list-group" id="list-group">
+    <button type="button" class="list-group-item list-group-item-action active" aria-current="true" id="btn-0">
+      id="btn-0
     </button>
-    <button type="button" class="list-group-item list-group-item-action">A second button item</button>
-    <button type="button" class="list-group-item list-group-item-action">A third button item</button>
-    <button type="button" class="list-group-item list-group-item-action">A fourth button item</button>
-    <button type="button" class="list-group-item list-group-item-action" disabled>A disabled button item</button>
+    <button type="button" class="list-group-item list-group-item-action" id="btn-1"id="btn-1">id="btn-1"</button>
+    <button type="button" class="list-group-item list-group-item-action" id="btn-2">id="btn-2"</button>
+    <button type="button" class="list-group-item list-group-item-action" id="btn-3">id="btn-3"</button>
+    <button type="button" class="list-group-item list-group-item-action" id="btn-4">id="btn-4"</button>
+    <button type="button" class="list-group-item list-group-item-action" disabled>id="disabled"</button>
   </div>
+  
   <div id="results"></div>  <!--results from searches-->
       </div>
         
@@ -53,13 +55,13 @@
             <div class="row">
               <div id="openweathermap-widget-16"></div>
 <!-- <script>window.myWidgetParam ? window.myWidgetParam : window.myWidgetParam = [];  window.myWidgetParam.push({id: 16,cityid: '2643743',appid: '1955f906c0c9c29af2c80c9f214c9aa4',units: 'metric',containerid: 'openweathermap-widget-16',  });  (function() {var script = document.createElement('script');script.async = true;script.charset = "utf-8";script.src = "//openweathermap.org/themes/openweathermap/assets/vendor/owm/js/weather-widget-generator.js";var s = document.getElementsByTagName('script')[0];s.parentNode.insertBefore(script, s);  })();</script> -->
-        Column 2 current weather
+       <p id="headline">CURRENT WEATHER CONDITIONS</p>
         </div>
         </div>
         <div class="container text-center">
         <div class="row">
           <p>5 day forecast</p>
-            <div class="col" id="col-1">Day 1 tomorrow</div>
+            <div class="col" id="col-1">Tomorrow</div>
             <div class="col" id="col-2">Day 2</div>
             <div class="col" id="col-3">Day 3</div>
             <div class="col" id="col-4" >Day 4</div>
