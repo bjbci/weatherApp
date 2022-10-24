@@ -56,9 +56,15 @@ function placeInSearchButton(cityName){
         console.log(cityBtn)
        var li=document.createElement('li')
        var a =document.createElement('a') 
+       li.classList.add('list-group')
+       a.textContent=cityBtn.name
+       a.href=response.url
+       a.target='_blank'
         li.appendChild(a)
         ul.appendChild(li)
-        a.textContent=cityBtn.name
+        
+       input.value="" 
+      
       }
 
 })
@@ -244,7 +250,7 @@ console.log(input.value);   /*value of typeInCity input */
 
        
       })
-      input.textContent=""   
+      input.value=""   
     }
     
     function handleSubmit(event){
