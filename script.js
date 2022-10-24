@@ -3,8 +3,12 @@
 //1955f906c0c9c29af2c80c9f214c9aa4
 var form = document.querySelector("form");
 console.log(form);
-var typeInCity = document.getElementById("typeInCity"); /*value of input-city name */
-console.log(typeInCity);
+//var buttonGroup=document.getElementById("list-group")
+//console.log(buttonGroup)
+var input = document.getElementById("typeInCity"); /*value of input-city name */
+console.log(input);
+var ul=document.getElementById("list-group")
+console.log(ul)
 var btnSubmit = document.getElementById("btnSubmit");
 var todaysForecast = document.getElementById("current-forecast");
 console.log(btnSubmit);
@@ -24,17 +28,50 @@ console.log(dayFour)
 var dayFive = document.getElementById("col-5")
 console.log(dayFive)
 
-function getWeather(event) {   /*all event listeners get an event parameter by default that you can use*/
-  event.preventDefault(); /*preventDefault on the event, prevents page from refreshing when submit is hit */
 
-  console.log(typeInCity.value);   /*value of typeInCity input */
-  var cityName = typeInCity.value;
+//<li class="list-group-item">
+ // <a href="LINKLINKLINK" target="_blank">cCITYNAME</a>
+//</li>
+
+
+function placeInSearchButton(cityName){
+  console.log(input.value);
+  console.log(cityName)
+  fetch("https://api.openweathermap.org/data/2.5/forecast?q="+ cityName +"&appid=1955f906c0c9c29af2c80c9f214c9aa4&units=imperial")
+    .then(function (response) {                 /*function for api call */
+      console.log(response);
+      if (response.status === 200) {             /*checks for successful api call */
+        return response.json();
+      } else if (response.status === 404) {
+        console.log("not found");
+        console.log(response.json())
+      }
+    })
+    .then(function (data1) {                       /*returns data from api call */
+      console.log(data1)
+      
+      for (var i=0; i < data1.length;i++){
+
+        var cityBtn=data1[i]
+        console.log(cityBtn)
+       var li=document.createElement('li')
+       var a =document.createElement('a') 
+        li.appendChild(a)
+        ul.appendChild(li)
+        a.textContent=cityBtn.name
+      }
+
+})
+}
+
+
+function getWeather(cityName) {   /*all event listeners get an event parameter by default that you can use*/
+console.log(input.value);   /*value of typeInCity input */
+  var cityName = input.value;
   console.log(cityName);
 
   fetch(
-    "https://api.openweathermap.org/data/2.5/forecast?q="+ cityName +"&appid=1955f906c0c9c29af2c80c9f214c9aa4&units=imperial"
-    
-  )
+    "https://api.openweathermap.org/data/2.5/forecast?q="+ cityName +"&appid=1955f906c0c9c29af2c80c9f214c9aa4&units=imperial")
     .then(function (response) {                  /*function for api call */
       console.log(response);
       if (response.status === 200) {              /*checks for successful api call */
@@ -204,44 +241,52 @@ function getWeather(event) {   /*all event listeners get an event parameter by d
        dayFive.append(ul5e)
        dayFive.append(ul5f)
        dayFive.append(img5a)
+
+       
       })
-           
+      input.textContent=""   
     }
-    form.addEventListener('submit',getWeather) /*when submit is hit it runs the getWeather function */
-
-    //getWeather(event)
-
-    btnSubmit
-    var count=0
     
-    var listGroup
-    var cityBtn
+    function handleSubmit(event){
+      event.preventDefault()
+      var cityName=input.value
+      console.log(input.value)
+      placeInSearchButton(cityName)
+      getWeather(cityName)
+    }
+    form.addEventListener('submit',handleSubmit) /*when submit is hit it runs the getWeather function */
+    
+    //form.addEventListener('submit',placeInSearchButton)
+    
+    
+ 
+    
 
 
    
 
-    var buttonGroup=document.getElementById("list-group")
+    // var buttonGroup=document.getElementById("list-group")
 
-    console.log("buttonGroup")
-    var btn1= document.createElement("button") 
-    btn1.textContent=typeInCity
-    console.log(btn1)
-    buttonGroup.append(btn1)
+    // console.log("list-group")
+    // var btn1= document.createElement("button") 
+    // btn1.textContent=input
+    // console.log(btn1)
+    // buttonGroup.append(btn1)
 
 
-    cityBtn.addEventListener('click',function(){
-      if(count<4){
-        count++
-        cityBtn.textContent=typeInCity
-        localStorage.setItem("cityBtn",cityBtn)
-      }
-    })
+    // cityBtn.addEventListener('click',function(){
+    //   if(count<4){
+    //     count++
+    //     cityBtn.textContent=input
+    //     localStorage.setItem("cityBtn",cityBtn)
+    //   }
+    // })
 
-      localStorage.setItem('cityBtn0','typeInCity')
-      localStorage.setItem('cityBtn1','typeInCity')
-      localStorage.setItem('cityBtn2','typeInCity')
-      localStorage.setItem('cityBtn3','typeInCity')
-      localStorage.setItem('cityBtn4','typeInCity')
+      localStorage.setItem('cityBtn0','input')
+      localStorage.setItem('cityBtn1','input')
+      localStorage.setItem('cityBtn2','input')
+      localStorage.setItem('cityBtn3','input')
+      localStorage.setItem('cityBtn4','input')
        
       //  window.myWidgetParam ? window.myWidgetParam : window.myWidgetParam = [];  window.myWidgetParam.push({id: 16,cityid: '2643743',appid: '1955f906c0c9c29af2c80c9f214c9aa4',units: 'metric',containerid: 'openweathermap-widget-16',  });  (function() {var script = document.createElement('script');script.async = true;script.charset = "utf-8";script.src = "//openweathermap.org/themes/openweathermap/assets/vendor/owm/js/weather-widget-generator.js";var s = document.getElementsByTagName('script')[0];s.parentNode.insertBefore(script, s);  })();
      
