@@ -46,21 +46,6 @@ function handleSubmit(event) {
 form.addEventListener("submit",handleSubmit);
 
 
-
-// function placeInSearchButton(cityName) {
-//   // var mostRecentSearched = input.value
-//   // console.log(mostRecentSearched);
-//   // var searchedArr = []
-//   // searchedArr.push(mostRecentSearched)
-//   // console.log(searchedArr)
-
-//   console.log(cityName);
-// }
-
-
-
-
-
 function placeInSearchButton(cityName) {
   // var mostRecentSearched = input.value
   // console.log(mostRecentSearched);
@@ -91,11 +76,8 @@ return data
  })
 }
 
-
  function getWeather(cityName) {
  
-
-
   const url =  "https://api.openweathermap.org/data/2.5/forecast?q=" +
   cityName +
   "&appid=1955f906c0c9c29af2c80c9f214c9aa4&units=imperial"
@@ -358,26 +340,20 @@ return data
 
        
 
-        ul0e="UVI "+data2.current.uvi
-        ul1e=data2.current.uvi
-        ul2e=data2.current.uvi
-        ul3e=data2.current.uvi
-        ul04=data2.current.uvi
-        ul5e=data2.current.uvi
+        ul0e="UV Index "+data2.current.uvi
+        ul1e="UV Index "+data2.daily[1].uvi
+        ul2e="UV Index "+data2.daily[2].uvi
+        ul3e="UV Index "+data2.daily[3].uvi
+        ul4e="UV Index "+data2.daily[4].uvi
+        ul5e="UV Index "+data2.daily[5].uvi
   
         currentWeather.append(ul0e);
-        currentWeather.append(ul1e);
-        currentWeather.append(ul2e);
-        currentWeather.append(ul3e);
-        currentWeather.append(ul4e);
-        currentWeather.append(ul5e);
-  
-        dayOne.append(ul0e);
         dayOne.append(ul1e);
-        dayOne.append(ul2e);
-        dayOne.append(ul3e);
-        dayOne.append(ul4e);
-        dayOne.append(ul5e);
+        dayTwo.append(ul2e);
+        dayThree.append(ul3e);
+        dayFour.append(ul4e);
+        dayFive.append(ul5e);
+        // daySix.append(ul5e);
 
     // console.log(longitude)
     // console.log(latitude)
